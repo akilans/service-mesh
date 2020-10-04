@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sm-bot
+  name: sm-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sm-bot
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sm-bot
+    spec:
+      containers:
+      - image: akilan/sm-python-bot
+        name: sm-python-bot
+        resources: {}
+status: {}

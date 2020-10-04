@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sm-book-web
+  name: sm-book-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sm-book-web
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sm-book-web
+    spec:
+      containers:
+        - image: akilan/sm-web
+          name: sm-web
+          env:
+            - name: "BOOK_SERVICE"
+              value: "sm-book-api"
+            - name: "REVIEW_SERVICE"
+              value: "sm-review-api"
+          resources: {}
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sm-book-web
+  name: sm-book-web
+spec:
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: sm-book-web
+  type: NodePort
+status:
+  loadBalancer: {}
