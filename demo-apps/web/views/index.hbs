@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <div class="container jumbotron">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8">
+                <div class="card-deck">
+
+                    {{#each books}}
+
+                    <div class="card">
+                        <img src="{{image_url}}" class="card-img-top" alt="{{ title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ title }}</h5>
+                            <h6>&#x20b9; - {{ price }}</h6>
+                            <a href="./details/{{id}}" type="button" class="btn btn-primary">Read Reviews</a>
+                        </div>
+                    </div>
+
+                    {{/each}}
+
+
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

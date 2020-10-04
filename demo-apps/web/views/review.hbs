@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Review : {{ title }}</title>
+</head>
+
+<body>
+    <div class="container jumbotron">
+        <div class="d-flex justify-content-center">.
+            <a href="/" type="button" class="btn btn-primary">Go to Book Store</a>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8">
+
+
+                {{#each reviews }}
+                <h1>{{ title }}</h1>
+
+                {{#each this.reviews }}
+
+                <div class="card">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>{{ text }}</p>
+                            <footer class="blockquote-footer">{{ user }}</footer>
+                        </blockquote>
+                    </div>
+                </div>
+                {{/each}}
+
+                {{/each}}
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</body>
+
+</html>
