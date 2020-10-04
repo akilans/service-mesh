@@ -15,9 +15,19 @@ sudo chmod +x linkerd2-cli-stable-2.8.1-linux
 sudo mv linkerd2-cli-stable-2.8.1-linux /usr/local/bin/linkerd
 linkerd version
 linkerd check --pre # validate kbs cluster
+linkerd install | kubectl apply -f -
 linkerd check # checks linkerd health
 linkerd dashboard & # Open grafana dashboard
 linkerd -n linkerd top deploy/linkerd-web # Monitor via cmd line
+```
+
+### Deploy Books App [ Our Own App ]
+
+```bash
+kubectl apply -f .
+kubectl get deploy -n demo -o yaml \
+  | linkerd inject - \
+  | kubectl apply -f -
 ```
 
 ### Deploy Sample Application
@@ -46,10 +56,6 @@ kubectl get deploy -o yaml | linkerd inject - | kubectl apply -f -
 
 - annotating the namespace, deployment, or pod with the `linkerd.io/inject: enabled` Kubernetes annotation, which will trigger automatic proxy injection when the resources are created.
 
-```
-kubectl annotate --overwrite ns admcoe linkerd.io/inject=enabled
-```
-
 ### Uninstall Linkerd
 
 ```bash
@@ -58,3 +64,9 @@ kubectl annotate --overwrite ns admcoe linkerd.io/inject=enabled
 # From control plane
 linkerd uninstall | kubectl delete -f -
 ```
+
+### Tips - Delete ns if it stuck
+
+- kubectl get namespace demo -o json > demo.json
+- remove 'kubernetes' from finalizers
+- kubectl replace --raw "/api/v1/namespaces/demo/finalize" -f ./demo.json

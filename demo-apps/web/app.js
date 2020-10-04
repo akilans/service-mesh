@@ -6,11 +6,13 @@ const app = express();
 
 app.set("view engine", "hbs");
 const port = process.env.port || 3000;
-const book_service_url = process.env.BOOK_SERVICE || "http://localhost:5000";
+const book_service_url =
+  process.env.BOOK_SERVICE || "http://192.168.99.102:31002";
 const review_service_url =
-  process.env.REVIEW_SERVICE || "http://localhost:7000";
+  process.env.REVIEW_SERVICE || "http://192.168.99.102:31311";
 
 app.get("/", (req, res) => {
+  console.log(book_service_url);
   axios.get(book_service_url).then((response) => {
     res.render("index", {
       title: "Book Store",
@@ -21,6 +23,7 @@ app.get("/", (req, res) => {
 
 app.get("/details/:id", (req, res) => {
   let book_id = req.params.id;
+  console.log(`${review_service_url}/review/${book_id}`);
   axios.get(`${review_service_url}/review/${book_id}`).then((response) => {
     console.log(response.data);
     res.render("review", {

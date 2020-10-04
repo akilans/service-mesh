@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 COPY bot.py .
 
 # command to run on container start
-CMD [ "python", "./bot.py" ]
+CMD ["python", "bot.py"]

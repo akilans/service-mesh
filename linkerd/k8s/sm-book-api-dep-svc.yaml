@@ -5,6 +5,7 @@ metadata:
   labels:
     app: sm-book-api
   name: sm-book-api
+  namespace: demo
 spec:
   replicas: 1
   selector:
@@ -31,6 +32,7 @@ metadata:
   labels:
     app: sm-book-api
   name: sm-book-api
+  namespace: demo
 spec:
   ports:
     - port: 5000
@@ -38,6 +40,6 @@ spec:
       targetPort: 5000
   selector:
     app: sm-book-api
-  type: ClusterIP
+  type: NodePort
 status:
   loadBalancer: {}

@@ -5,6 +5,7 @@ metadata:
   labels:
     app: sm-book-web
   name: sm-book-web
+  namespace: demo
 spec:
   replicas: 1
   selector:
@@ -22,9 +23,9 @@ spec:
           name: sm-web
           env:
             - name: "BOOK_SERVICE"
-              value: "sm-book-api"
+              value: "http://sm-book-api:5000"
             - name: "REVIEW_SERVICE"
-              value: "sm-review-api"
+              value: "http://sm-review-api:7000"
           resources: {}
 status: {}
 
@@ -36,6 +37,7 @@ metadata:
   labels:
     app: sm-book-web
   name: sm-book-web
+  namespace: demo
 spec:
   ports:
     - port: 3000
