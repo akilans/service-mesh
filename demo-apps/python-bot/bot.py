@@ -4,8 +4,9 @@ import time
 
 book_service_url = os.getenv("BOOK_SERVICE", "http://localhost:5000")
 review_service_url = os.getenv("REVIEW_SERVICE", "http://localhost:7000")
+web_service_url = os.getenv("WEB_SERVICE", "http://localhost:3000")
 
-book_ids = ["1", "2", "3", ""]
+book_ids = ["1", "2", "3"]
 
 while True:
 
@@ -14,9 +15,15 @@ while True:
         print("Requesting "+book_service_url)
         print(books_response)
 
-        books_response = requests.get(book_service_url+"/dummy")
-        print("Requesting "+book_service_url+"/dummy")
-        print(books_response)
+        # Introducing errors
+        web_response = requests.get(web_service_url+"/error")
+        print("Requesting "+web_service_url+"/error")
+        print(web_response)
+
+        # Introducing errors
+        review_response = requests.get(review_service_url+"/error")
+        print("Requesting "+review_service_url+"/error")
+        print(review_response)
 
         for id in book_ids:
             review_response = requests.get(review_service_url+"/review/"+id)

@@ -19,7 +19,7 @@ spec:
         app: sm-book-web
     spec:
       containers:
-        - image: akilan/sm-web
+        - image: akilan/sm-web:v2
           name: sm-web
           env:
             - name: "BOOK_SERVICE"

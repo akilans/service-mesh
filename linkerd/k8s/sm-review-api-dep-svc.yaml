@@ -19,7 +19,7 @@ spec:
         app: sm-review-api
     spec:
       containers:
-        - image: akilan/sm-review-api
+        - image: akilan/sm-review-api:v2
           name: sm-review-api
           resources: {}
 status: {}

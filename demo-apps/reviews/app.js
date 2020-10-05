@@ -63,6 +63,10 @@ app.get("/review/:id", (req, res) => {
   res.json(book_review);
 });
 
+app.get("/error", (req, res) => {
+  res.status(500).send("Fake 500 error");
+});
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });

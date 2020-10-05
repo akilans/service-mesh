@@ -19,12 +19,14 @@ spec:
         app: sm-bot
     spec:
       containers:
-        - image: akilan/sm-python-bot:v1
+        - image: akilan/sm-python-bot:v2
           name: sm-python-bot
           env:
             - name: "BOOK_SERVICE"
               value: "http://sm-book-api:5000"
             - name: "REVIEW_SERVICE"
               value: "http://sm-review-api:7000"
+            - name: "WEB_SERVICE"
+              value: "http://sm-book-web:3000"
           resources: {}
 status: {}

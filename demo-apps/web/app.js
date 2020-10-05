@@ -6,10 +6,9 @@ const app = express();
 
 app.set("view engine", "hbs");
 const port = process.env.port || 3000;
-const book_service_url =
-  process.env.BOOK_SERVICE || "http://192.168.99.102:31002";
+const book_service_url = process.env.BOOK_SERVICE || "http://localhost:5000";
 const review_service_url =
-  process.env.REVIEW_SERVICE || "http://192.168.99.102:31311";
+  process.env.REVIEW_SERVICE || "http://localhost:7000";
 
 app.get("/", (req, res) => {
   console.log(book_service_url);
@@ -31,6 +30,10 @@ app.get("/details/:id", (req, res) => {
       reviews: response.data,
     });
   });
+});
+
+app.get("/error", (req, res) => {
+  res.status(500).send("Fake 500 error");
 });
 
 app.listen(port, () => {
