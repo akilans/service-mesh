@@ -1,3 +1,5 @@
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fakilans%2Fservice-mesh%2Ftree%2Fmain%2Fistio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 # Istio Service Mesh
 
 ### Prerequisites
@@ -19,6 +21,10 @@ minikube addons enable istio
 The following command downloads the istioctl with sample application and manifest
 Don't worry, i am not using default sample application. We won't learn much from sample application
 We will bring our own application
+
+#### Demo App Architecture
+
+![Books Store Web - Books API - Reviews API - Python BOT ](https://github.com/akilans/service-mesh/blob/main/images/svc-mesh.png?raw=true)
 
 ```bash
 curl -L https://istio.io/downloadIstio | sh -
