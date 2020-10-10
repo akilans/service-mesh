@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sm-book-api
+  name: sm-book-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sm-book-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sm-book-api
+    spec:
+      containers:
+        - image: akilan/sm-books-api:v2
+          name: sm-books-api
+          resources: {}
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sm-book-api
+  name: sm-book-api
+spec:
+  ports:
+    - port: 5000
+      protocol: TCP
+      targetPort: 5000
+  selector:
+    app: sm-book-api
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -3,6 +3,7 @@ const hbs = require("hbs");
 const axios = require("axios");
 
 const app = express();
+const app_color = process.env.APP_COLOR || undefined;
 
 app.set("view engine", "hbs");
 const port = process.env.port || 3000;
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
     res.render("index", {
       title: "Book Store",
       books: response.data,
+      color: app_color,
     });
   });
 });
@@ -33,7 +35,10 @@ app.get("/details/:id", (req, res) => {
 });
 
 app.get("/error", (req, res) => {
-  res.status(500).send("Fake 500 error");
+  res.status(500).render("error", {
+    title: "500 - Error",
+    message: "Dont't worry, It is Fake 500 error!!!",
+  });
 });
 
 app.listen(port, () => {

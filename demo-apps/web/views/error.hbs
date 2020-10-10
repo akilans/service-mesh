@@ -10,35 +10,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Review : {{ title }}</title>
+    <title>{{ title }}</title>
 </head>
 
 <body>
-    <div class="container jumbotron">
+    <div class="container jumbotron" style="min-height: 100vh;">
         <div class="d-flex justify-content-center mb-4">.
             <a href="/" type="button" class="btn btn-primary">Go to Book Store</a>
         </div>
         <div class="row">
             <div class="col"></div>
             <div class="col-8">
-
-
-                {{#each reviews }}
-                <h1>{{ title }}</h1>
-
-                {{#each this.reviews }}
-
-                <div class="card">
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                            <p>{{ text }}</p>
-                            <footer class="blockquote-footer">{{ user }}</footer>
-                        </blockquote>
-                    </div>
-                </div>
-                {{/each}}
-
-                {{/each}}
+                <div class="p-3 mb-2 bg-danger text-white">{{ message }}</div>
             </div>
             <div class="col"></div>
         </div>

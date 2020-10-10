@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sm-book-web
+    color: green
+  name: sm-book-web-green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sm-book-web
+      color: green
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sm-book-web
+        color: green
+    spec:
+      containers:
+        - image: akilan/sm-web:v3
+          name: sm-web
+          env:
+            - name: "BOOK_SERVICE"
+              value: "http://sm-book-api:5000"
+            - name: "REVIEW_SERVICE"
+              value: "http://sm-review-api:7000"
+            - name: "APP_COLOR"
+              value: "green"
+          resources: {}
+status: {}

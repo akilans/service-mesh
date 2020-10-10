@@ -16,7 +16,9 @@
 <body>
     <div class="container jumbotron">
         <div class="row">
-            <div class="col"></div>
+            <div class="col">
+                <a href="./error" type="button" class="btn btn-danger">Generate Error</a>
+            </div>
             <div class="col-8">
                 <div class="card-deck">
 
@@ -27,7 +29,15 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ title }}</h5>
                             <h6>&#x20b9; - {{ price }}</h6>
+
+                            {{#if ../color}}
+                            <div class="p-3 mb-2 bg-success text-white">Canary App</div>
+                            <a href="./details/{{id}}" type="button" class="btn btn-success">Read Reviews</a>
+                            {{else}}
                             <a href="./details/{{id}}" type="button" class="btn btn-primary">Read Reviews</a>
+                            {{/if}}
+
+
                         </div>
                     </div>
 
@@ -36,7 +46,8 @@
 
                 </div>
             </div>
-            <div class="col"></div>
+            <div class=" col">
+            </div>
         </div>
 
 
