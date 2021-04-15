@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   creationTimestamp: null
   name: demo
-  annotations:
-    linkerd.io/inject: enabled
+  #annotations:
+    #linkerd.io/inject: enabled
 spec: {}
 status: {}
