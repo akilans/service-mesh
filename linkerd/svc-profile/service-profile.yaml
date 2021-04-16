@@ -1,0 +1,16 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: sm-review-api.demo.svc.cluster.local
+  namespace: demo
+spec:
+  routes:
+  - condition:
+      method: GET
+      pathRegex: '/review/\d+'
+    name: GET /review/{id} books list
+  - condition:
+      method: GET
+      pathRegex: '/error'
+    name: GET /error
+    isRetryable: true

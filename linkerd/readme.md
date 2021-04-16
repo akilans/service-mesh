@@ -86,6 +86,34 @@ watch linkerd stat deployments -n demo # Overall stat
 linkerd uninstall | kubectl delete -f -
 ```
 
+### Service Profile
+- A service profile is an optional piece of configuration that informs Linkerd about the different types of requests to a service, as classified by their route. A route is simply an endpoint (for gRPC) or an HTTP verb and endpoint (for HTTP)
+-  Before service profiles, we only knew that the web service was returning errors. Now, we know that the errors come specifically from the /review/{id}, /error route
+- refer k8s/service-profile.yaml
+
+```bash
+linkerd routes deployment/sm-review-api --namespace demo
+```
+
+### SRE features - Load Balancing, Retries, Timeout
+- LoadBalancing - Linkerd will establish connections to the possible set of endpoints and balance requests across all these connections
+- Retries - if a particular route on a particular instance returns an error, and simply retrying that request 
+- Timeout - set max duration. So that if some endpoint is not respinding, it will go through retries. This time it will go to another instance.
+
+
+### Security - mutual TLS (mTLS) 
+
+- Check it is secured by mTLS
+
+```bash
+linkerd tap pods -n demo
+linkerd edges deployment -n demo
+```
+
+### Traffic Splitting (blue/green, canary deployment)
+
+
+
 ### Tips - Delete ns if it stuck
 
 - kubectl get namespace demo -o json > demo.json
