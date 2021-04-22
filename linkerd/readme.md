@@ -22,6 +22,8 @@
     - Web based UI written in node and reactjs
     - Grafana and Prometheus
 
+  ![LinkerD Arch ](https://github.com/akilans/service-mesh/blob/main/images/linkerd-arch.png?raw=true)
+
 ### Linkerd Installation
 
 ```bash
@@ -98,7 +100,7 @@ linkerd routes deployment/sm-review-api --namespace demo
 ### SRE features - Load Balancing, Retries, Timeout
 - LoadBalancing - Linkerd will establish connections to the possible set of endpoints and balance requests across all these connections
 - Retries - if a particular route on a particular instance returns an error, and simply retrying that request 
-- Timeout - set max duration. So that if some endpoint is not respinding, it will go through retries. This time it will go to another instance.
+- Timeout - set max duration. So that if some endpoint is not responding, it will go through retries. This time it will go to another instance.
 
 
 ### Security - mutual TLS (mTLS) 
