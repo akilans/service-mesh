@@ -79,15 +79,6 @@ linkerd top deployment/sm-book-web --namespace demo # live metrics
 watch linkerd stat deployments -n demo # Overall stat
 ```
 
-### Uninstall Linkerd
-
-```bash
-# From Data plane - Remove annotation from deployment
-# linkerd.io/inject: disabled
-# From control plane
-linkerd uninstall | kubectl delete -f -
-```
-
 ### Service Profile
 - A service profile is an optional piece of configuration that informs Linkerd about the different types of requests to a service, as classified by their route. A route is simply an endpoint (for gRPC) or an HTTP verb and endpoint (for HTTP)
 -  Before service profiles, we only knew that the web service was returning errors. Now, we know that the errors come specifically from the /review/{id}, /error route
@@ -115,6 +106,15 @@ linkerd edges deployment -n demo
 ### Traffic Splitting (blue/green, canary deployment)
 
 
+
+### Uninstall Linkerd
+
+```bash
+# From Data plane - Remove annotation from deployment
+# linkerd.io/inject: disabled
+# From control plane
+linkerd uninstall | kubectl delete -f -
+```
 
 ### Tips - Delete ns if it stuck
 
