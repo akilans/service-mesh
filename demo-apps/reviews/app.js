@@ -10,12 +10,15 @@ let book_reviews = [
     reviews: [
       {
         user: "Akilan",
-        text:
-          "Cured my anxiety, won a lot of friends, and gave me more confidence than I've ever had in my life.",
+        text: "Cured my anxiety, won a lot of friends, and gave me more confidence than I've ever had in my life.",
       },
       {
         user: "Inba",
         text: "Everyone should read this book",
+      },
+      {
+        user: "Iniya",
+        text: "If you want to be successful, you need to read this book! ",
       },
     ],
   },
@@ -25,8 +28,7 @@ let book_reviews = [
     reviews: [
       {
         user: "Saravana",
-        text:
-          " Excellent book! be open minded and work through it, you won't regret of reading this book.",
+        text: " Excellent book! be open minded and work through it, you won't regret of reading this book.",
       },
       {
         user: "Alex",

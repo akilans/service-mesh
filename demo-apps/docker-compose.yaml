@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  web:
+    build: ./web
+    ports:
+      - "3000:3000"
+    environment:
+      BOOK_SERVICE: "http://books:5000"
+      REVIEW_SERVICE: "http://review:7000"
+    depends_on:
+      - books
+      - review
+  books:
+    build: ./books
+    ports:
+      - "5000:5000"
+  review:
+    build: ./reviews
+    ports:
+      - "7000:7000"

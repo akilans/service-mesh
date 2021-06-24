@@ -13,25 +13,35 @@ const review_service_url =
 
 app.get("/", (req, res) => {
   console.log(book_service_url);
-  axios.get(book_service_url).then((response) => {
-    res.render("index", {
-      title: "Book Store",
-      books: response.data,
-      color: app_color,
+  axios
+    .get(book_service_url)
+    .then((response) => {
+      res.render("index", {
+        title: "Book Store",
+        books: response.data,
+        color: app_color,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
 });
 
 app.get("/details/:id", (req, res) => {
   let book_id = req.params.id;
   console.log(`${review_service_url}/review/${book_id}`);
-  axios.get(`${review_service_url}/review/${book_id}`).then((response) => {
-    console.log(response.data);
-    res.render("review", {
-      title: book_id,
-      reviews: response.data,
+  axios
+    .get(`${review_service_url}/review/${book_id}`)
+    .then((response) => {
+      console.log(response.data);
+      res.render("review", {
+        title: book_id,
+        reviews: response.data,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
 });
 
 app.get("/error", (req, res) => {
