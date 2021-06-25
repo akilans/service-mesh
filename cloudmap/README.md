@@ -6,6 +6,22 @@
 - Docker-compose
 - AWS account
 - Dockerhub account
+- AWS cli
+
+### AWS CloudMap
+
+- AWS Cloud Map is a managed solution that you can use to map logical names to the resources for an application. In our case it is ECS service
+- Namespace is a logical grouping of services.
+- AWS Cloud Map automatically creates an Amazon Route 53 public or private hosted zone that has the same name as the namespace.
+-
+
+### Application Architecture
+
+![App architecture ](https://github.com/akilans/service-mesh/blob/main/images/architecture.png?raw=true)
+
+### Application Architecture with AWS ECS/Cloudmap
+
+![App architecture with AWS ECS/Cloudmap](https://github.com/akilans/service-mesh/blob/main/images/cloud-map.png?raw=true)
 
 ### Docker images
 
